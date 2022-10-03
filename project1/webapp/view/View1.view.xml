@@ -12,64 +12,54 @@
 			<f:title>
 				<f:DynamicPageTitle id="dynamicPageTitle">
 					<f:heading>
-						<Title text="Header Title"/>
+						<Title text="Room Condition"/>
 					</f:heading>
 					<f:breadcrumbs>
 						<Breadcrumbs>
-							<Link text="Home" />
-							<Link text="Page 1" />
-							<Link text="Page 2" />
-							<Link text="Page 3" />
-							<Link text="Page 4" />
-							<Link text="Page 5" />
+							<Link text="Entire" />
+							<Link text="Floor 1" />
+							<Link text="Floor 2" />
+							<Link text="Floor 3" />
+							<Link text="Floor 4" />
+							<Link text="Floor 5" />
 						</Breadcrumbs>
 					</f:breadcrumbs>
 					<f:expandedContent>
-						<Label text="This is a subheading"/>
+						<Label text="Grand SAP Hotel (Seoul)"/>
 					</f:expandedContent>
 					<f:snappedContent>
-						<Label text="This is a subheading"/>
+						<Label text="Grand SAP Hotel (Seoul)"/>
 					</f:snappedContent>
 					<f:snappedTitleOnMobile>
-						<Title text="This is a subheading"/>
+						<Title text="Grand SAP Hotel (Seoul)"/>
 					</f:snappedTitleOnMobile>
 					<f:content>
 						<OverflowToolbar>
-							<GenericTag text="SR"
-								status="Error"
+							<GenericTag text="COUNT"
+								status="Success"
 								press="onPressOpenPopover"
 								design="StatusIconHidden">
-								<ObjectNumber number="2"
-									unit="M"
-									emphasized="false"
-									state="Error"/>
+								<ObjectNumber number="39"
+									unit="EA"
+									state="Success"/>
 							</GenericTag>
 						</OverflowToolbar>
 					</f:content>
 					<f:actions>
 						<Button
-								text="Search"
+								text="물품 검색"
 								icon="sap-icon://menu2"
 								press="onCollapseExpandPress" />
 						<Button
-								text="Edit"
+								text="Back"
 								type="Emphasized"
 								press="toggleAreaPriority"/>
 						<Button
-								text="Delete"
-								type="Transparent"/>
-						<Button
-								text="Copy"
-								type="Transparent"/>
-						<Button
-								text="Toggle Footer"
-								type="Transparent"
+								text="contact"
+								type="Reject"
 								press="onToggleFooter"/>
 						<Button
-								icon="sap-icon://action"
-								type="Transparent"/>
-						<Button
-								text="Button with layoutData"
+								text="청소 필요 객실 수 확인"
 								type="Transparent"
 								press="onPressOpenPopover">
 							<layoutData>
@@ -77,32 +67,20 @@
 							</layoutData>
 						</Button>
 					</f:actions>
-					<f:navigationActions>
-						<Button
-								icon="sap-icon://full-screen"
-								type="Transparent" />
-						<Button
-								icon="sap-icon://exit-full-screen"
-								type="Transparent" />
-						<Button
-								icon="sap-icon://decline"
-								type="Transparent" />
-					</f:navigationActions>
 				</f:DynamicPageTitle>
 			</f:title>
 			<!-- DynamicPage Header -->
 			<f:header>
-				<f:DynamicPageHeader pinnable="true">
+				<f:DynamicPageHeader>
 					<layout:HorizontalLayout allowWrapping="true">
 						<layout:VerticalLayout class="sapUiMediumMarginEnd">
-							<ObjectAttribute title="Location" text="Warehouse A"/>
-							<ObjectAttribute title="Halway" text="23L"/>
-							<ObjectAttribute title="Rack" text="34"/>
+							<ObjectAttribute title="Location" text="서울시 중구 관철동"/>
+							<ObjectAttribute title="House Keeping Manager" text="짱구"/>
+							<ObjectAttribute title="Facility Maintenance" text="맹구"/>
 						</layout:VerticalLayout>
-
 						<layout:VerticalLayout>
-							<ObjectAttribute title="Availability"/>
-							<ObjectStatus text="In Stock" state="Success" />
+							<ObjectAttribute title="House Keeper"/>
+							<ObjectStatus text="철수" state="Success" />
 						</layout:VerticalLayout>
 					</layout:HorizontalLayout>
 				</f:DynamicPageHeader>
@@ -121,42 +99,47 @@
 					   class="sapFDynamicPageAlignContent">
 					<headerToolbar>
 						<Toolbar>
-							<Title text="Products" level="H2"/>
+							<Title text="Rooms" level="H2"/>
 						</Toolbar>
 					</headerToolbar>
 					<columns>
 						<Column
-								width="12em">
+								width="25%"
+								hAlign="Center">
 							<Text text="Room Floor" />
 						</Column>
 						<Column
 								minScreenWidth="Tablet"
-								demandPopin="true">
+								demandPopin="true"
+								width="25%"
+								hAlign="Center">
 							<Text text="Room Number" />
 						</Column>
 						<Column
 								minScreenWidth="Tablet"
 								demandPopin="true"
-								hAlign="End">
+								width="25%"
+								hAlign="Center">
 							<Text text="Room Type" />
 						</Column>
 						<Column
-								hAlign="End">
+								width="25%"
+								hAlign="Center">
 							<Text text="Room Condition" />
 						</Column>
 					</columns>
 					<items>
-						<ColumnListItem type="Detail" detailPress="onCollapseExpandPress">
+						<ColumnListItem type="Detail" 
+										detailPress="onCollapseExpandPress">
 							<cells>
-								<ObjectIdentifier
-										title="{Name}"
-										text="{roomFloor}"/>
+								<Text
+										text="{roomFloor}" />
 								<Text
 										text="{roomNum}" />
 								<Text
 										text="{roomType}" />
-                                <InputListItem>
-								<Select>
+                                <InputListItem >
+								<Select textAlign="Center">
 									<core:Item key="OK" text="청소완료" />
 									<core:Item key="ING" text="이용중" />
 									<core:Item key="EM" text="이용가능" />
@@ -166,30 +149,36 @@
 						</ColumnListItem>
 					</items>
 				</Table>
-					<tnt:SideNavigation id="sideNavigation" selectedKey="subItem3" expanded="false">
+					<tnt:SideNavigation id="sideNavigation" expanded="false">
 						<tnt:NavigationList>
-							<tnt:NavigationListItem text="Item 1" icon="sap-icon://employee">
-								<tnt:NavigationListItem text="Sub Item 1" />
-								<tnt:NavigationListItem text="Sub Item 2" />
-								<tnt:NavigationListItem text="Sub Item 3" id="subItem3" key="subItem3" />
-								<tnt:NavigationListItem text="Sub Item 4" />
+							<tnt:NavigationListItem text="SSTSG" icon="sap-icon://expand-group">
+								<tnt:NavigationListItem text="침실"  />
+								<tnt:NavigationListItem text="욕실" />
+								<tnt:NavigationListItem text="책상" />
+								<tnt:NavigationListItem text="냉장고" />
 							</tnt:NavigationListItem>
-							<tnt:NavigationListItem text="Item 2" icon="sap-icon://building">
-								<tnt:NavigationListItem text="Sub Item 1" />
-								<tnt:NavigationListItem text="Sub Item 2" />
-								<tnt:NavigationListItem text="Sub Item 3" />
-								<tnt:NavigationListItem text="Sub Item 4" />
+							<tnt:NavigationListItem text="SSTDB" icon="sap-icon://expand-group">
+								<tnt:NavigationListItem text="침실"  />
+								<tnt:NavigationListItem text="욕실" />
+								<tnt:NavigationListItem text="책상" />
+								<tnt:NavigationListItem text="냉장고" />
 							</tnt:NavigationListItem>
 						</tnt:NavigationList>
 						<tnt:fixedItem>
 							<tnt:NavigationList>
-								<tnt:NavigationListItem text="Item 1" icon="sap-icon://employee" />
-								<tnt:NavigationListItem text="Item 2" icon="sap-icon://building" />
-								<tnt:NavigationListItem text="Item 3" icon="sap-icon://card" />
+								<tnt:NavigationListItem text="SSTSG" icon="sap-icon://checklist-item" />
+								<tnt:NavigationListItem text="SSTDB" icon="sap-icon://checklist-item-2" />
 							</tnt:NavigationList>
 							</tnt:fixedItem>
 					</tnt:SideNavigation>
 				</HBox>
 			</f:content>
+			<!-- DynamicPage Footer -->
+			<f:footer>
+				<OverflowToolbar>
+					<Button type="Accept" text="Accept"/>
+					<Button type="Reject" text="Reject"/>
+				</OverflowToolbar>
+			</f:footer>
 	</f:DynamicPage>
 </mvc:View>
