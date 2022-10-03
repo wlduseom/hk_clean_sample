@@ -19,13 +19,13 @@ sap.ui.define([
                 var sampleData = {
                     rooms : [
                         {
-                            roomFloor : 1, roomNum : 101, roomType : "SSTSGM", roomCondition : "청소필요"
+                            roomFloor : 1, roomNum : 101, roomType : "SSTSG", roomCondition : "청소필요"
                         },
                         {
-                            roomFloor : 1, roomNum : 102, roomType : "SSTSGM", roomCondition : "이용중"
+                            roomFloor : 1, roomNum : 102, roomType : "SSTSG", roomCondition : "이용중"
                         },
                         {
-                            roomFloor : 1, roomNum : 103, roomType : "SSTSGM", roomCondition : "이용가능"
+                            roomFloor : 1, roomNum : 103, roomType : "SSTSG", roomCondition : "이용가능"
                         }
                     ]
                 };
