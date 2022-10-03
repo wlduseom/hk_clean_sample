@@ -4,7 +4,9 @@
     xmlns:f="sap.f"
 	xmlns:layout="sap.ui.layout"
 	xmlns:core="sap.ui.core"
-	height="100%">
+	xmlns:tnt="sap.tnt"
+	height="100%"
+	class="side-navigation-demo">
     <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
 			<!-- DynamicPage Title -->
 			<f:title>
@@ -45,6 +47,10 @@
 						</OverflowToolbar>
 					</f:content>
 					<f:actions>
+						<Button
+								text="Search"
+								icon="sap-icon://menu2"
+								press="onCollapseExpandPress" />
 						<Button
 								text="Edit"
 								type="Emphasized"
@@ -102,6 +108,7 @@
 				</f:DynamicPageHeader>
 			</f:header>
 			<f:content>
+				<HBox width="100%">
 				<Table id="idProductsTable"
 						alternateRowColors="true"
 						sticky="HeaderToolbar,ColumnHeaders"
@@ -111,8 +118,7 @@
 								path: 'roomNum'
 							}
 						}"
-					   class="sapFDynamicPageAlignContent"
-					   width="auto">
+					   class="sapFDynamicPageAlignContent">
 					<headerToolbar>
 						<Toolbar>
 							<Title text="Products" level="H2"/>
@@ -140,7 +146,7 @@
 						</Column>
 					</columns>
 					<items>
-						<ColumnListItem type="Navigation">
+						<ColumnListItem type="Detail" detailPress="onCollapseExpandPress">
 							<cells>
 								<ObjectIdentifier
 										title="{Name}"
@@ -156,23 +162,34 @@
 									<core:Item key="EM" text="이용가능" />
 								</Select>
 							</InputListItem>
-							<!-- https://ui5.sap.com/#/entity/sap.tnt.SideNavigation/sample/sap.tnt.sample.SideNavigation // NAVIGATION 기능 참고 -->
 							</cells>
 						</ColumnListItem>
 					</items>
 				</Table>
+					<tnt:SideNavigation id="sideNavigation" selectedKey="subItem3" expanded="false">
+						<tnt:NavigationList>
+							<tnt:NavigationListItem text="Item 1" icon="sap-icon://employee">
+								<tnt:NavigationListItem text="Sub Item 1" />
+								<tnt:NavigationListItem text="Sub Item 2" />
+								<tnt:NavigationListItem text="Sub Item 3" id="subItem3" key="subItem3" />
+								<tnt:NavigationListItem text="Sub Item 4" />
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem text="Item 2" icon="sap-icon://building">
+								<tnt:NavigationListItem text="Sub Item 1" />
+								<tnt:NavigationListItem text="Sub Item 2" />
+								<tnt:NavigationListItem text="Sub Item 3" />
+								<tnt:NavigationListItem text="Sub Item 4" />
+							</tnt:NavigationListItem>
+						</tnt:NavigationList>
+						<tnt:fixedItem>
+							<tnt:NavigationList>
+								<tnt:NavigationListItem text="Item 1" icon="sap-icon://employee" />
+								<tnt:NavigationListItem text="Item 2" icon="sap-icon://building" />
+								<tnt:NavigationListItem text="Item 3" icon="sap-icon://card" />
+							</tnt:NavigationList>
+							</tnt:fixedItem>
+					</tnt:SideNavigation>
+				</HBox>
 			</f:content>
-			<!-- DynamicPage Footer -->
-			<f:footer>
-				<OverflowToolbar>
-					<Button icon="sap-icon://message-popup"
-							text="{/messagesLength}"
-							type="Emphasized"
-							visible="{= !!${/messagesLength}}"/>
-					<ToolbarSpacer/>
-					<Button type="Accept" text="Accept"/>
-					<Button type="Reject" text="Reject"/>
-				</OverflowToolbar>
-			</f:footer>
-		</f:DynamicPage>
+	</f:DynamicPage>
 </mvc:View>

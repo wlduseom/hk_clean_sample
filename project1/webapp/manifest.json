@@ -56,7 +56,8 @@
                 "sap.ui.generic.app": {},
                 "sap.ui.table": {},
                 "sap.ushell": {},
-                "sap.ui.layout": {}
+                "sap.ui.layout": {},
+				"sap.tnt": {}
             }
         },
         "contentDensities": {
@@ -122,8 +123,8 @@
 			"sample": {
 				"stretch": true,
 				"files": [
-					"controller/DynamicPageFreeStyle.controller.js",
-					"view/DynamicPageFreeStyle.view.xml",
+					"controller/View1.controller.js",
+					"view/View1.view.xml",
 					"view/Card.fragment.xml",
 					"manifest.json"
 				]

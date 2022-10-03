@@ -64,8 +64,11 @@ sap.ui.define([
                 });
             },
 
-            onItemPress : function(oEvent) {
-
+            onCollapseExpandPress: function () {
+                var oSideNavigation = this.byId("sideNavigation");
+                var bExpanded = oSideNavigation.getExpanded();
+    
+                oSideNavigation.setExpanded(!bExpanded);
             },
 
         });
